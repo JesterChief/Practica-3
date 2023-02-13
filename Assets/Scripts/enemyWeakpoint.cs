@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class enemyWeakpoint: MonoBehaviour
 {
+    public AudioClip deadMusic;
+    [Range(0, 1)]
+    public float volumeMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,7 +14,8 @@ public class enemyWeakpoint: MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.GetComponent<PlatformPlayer>())
+        AudioManager.instance.PlayAudio(deadMusic, volumeMusic);
+        if (col.GetComponent<PlatformPlayer>())
         {
 
             Destroy(gameObject.transform.parent.gameObject);
@@ -21,22 +25,4 @@ public class enemyWeakpoint: MonoBehaviour
     }
 
 }
-    //private void OnCollisionEnter2D(Collision2D other)
-
-    //{
-
-
-        //if (other.collider.GetComponent<PlatformPlayer>())
-        //{
-
-
-
-            //Destroy(other.gameObject);
-            
-        //}
-
-
-    //}
-
-    // Update is called once per frame
    

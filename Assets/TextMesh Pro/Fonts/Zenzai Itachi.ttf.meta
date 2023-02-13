@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d63e4c407b8221a4985f1af7e391d9cc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zenzai Itachi
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9404d1f789cc4ec45b9f7ba0ef923085, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

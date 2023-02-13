@@ -22,21 +22,23 @@ public class EnemyPlatform : MonoBehaviour
     private Animator animator;
     public string boolwalk = "walking";
     public string boolruning = "runing";
+   
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        PlatformPlayer = GameObject.FindGameObjectWithTag("Player");
+        PlatformPlayer = FindObjectOfType<PlatformPlayer>().gameObject;
         myRigidbody = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = PlatformPlayer.GetComponent<Transform>();
         animator = GetComponent<Animator>();
       }
 
     // Update is called once per frame
     void Update()
     {
+        
 
 
         switch (currState)
@@ -68,12 +70,6 @@ public class EnemyPlatform : MonoBehaviour
          return Vector3.Distance(transform.position, PlatformPlayer.transform.position) <= range; //Devuelve el resultado de si la posicion de range es verdfadera o falso.
         
     }
-
-   // bool isFacingRight()
-   //{
-   //     return transform.localScale.x > 0;
-   // }
-
     void Wander()
     {
         myRigidbody.velocity = new Vector3(moveSpeed, 0f);
@@ -94,7 +90,7 @@ public class EnemyPlatform : MonoBehaviour
 
 
             Destroy(other.gameObject);
-            SceneManager.LoadScene("Scene1");
+            GameManager.instance.ChangeScene("GameOver");
         }
         
 

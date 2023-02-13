@@ -16,7 +16,7 @@ public class Deadzone : MonoBehaviour
         {
 
             Destroy(col.gameObject);
-            SceneManager.LoadScene("Scene1");
+            GameManager.instance.ChangeScene("GameOver");
 
         }
     }

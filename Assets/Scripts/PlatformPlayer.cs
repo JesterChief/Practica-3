@@ -15,6 +15,9 @@ public class PlatformPlayer : MonoBehaviour
     public string Boolruning = "runing";
     public string Booljump = "jump";
     public string Boolbrake = "brake";
+    public AudioClip jumpMusic;
+    [Range(0, 1)]
+    public float volumeMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -64,14 +67,12 @@ public class PlatformPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            AudioManager.instance.PlayAudio(jumpMusic, volumeMusic);
             rb.AddForce(new Vector2(rb.velocity.x, jump));
             animator.Play("Dash");
-            //animator.SetBool(Bolljump, true);
+            
         }
-        else {
-
-            //animator.SetBool(Bolljump, false);
-        }
+        
     }
         
 
